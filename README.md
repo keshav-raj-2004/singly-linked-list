@@ -1,20 +1,28 @@
 //# singly-linked-list ____ by keshav//
-#include <stdio.h>
-#include <stdlib.h>
 
-struct Node {
+
+
+
+
+
+
+
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    struct Node {
     int data;
     struct Node* next;
-};
+    };
 
-void insertAtBeginning(struct Node** head, int data);
-void insertAtEnd(struct Node** head, int data);
-void deleteNode(struct Node** head, int key);
-void displayList(struct Node* node);
+    void insertAtBeginning(struct Node** head, int data);
+    void insertAtEnd(struct Node** head, int data);
+    void deleteNode(struct Node** head, int key);
+    void displayList(struct Node* node);
 
-int main() {
-    struct Node* head = NULL;
-    int choice, data, key;
+    int main() {
+       struct Node* head = NULL;
+        int choice, data, key;
 
     while (1) {
         printf("\nMenu:\n");
@@ -53,17 +61,17 @@ int main() {
     }
 
     return 0;
-}
+    }
 
-void insertAtBeginning(struct Node** head, int data) {
+    void insertAtBeginning(struct Node** head, int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
     newNode->next = *head;
     *head = newNode;
     printf("Node inserted at beginning.\n");
-}
+     }
 
-void insertAtEnd(struct Node** head, int data) {
+    void insertAtEnd(struct Node** head, int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     struct Node* last = *head;
     newNode->data = data;
@@ -81,9 +89,9 @@ void insertAtEnd(struct Node** head, int data) {
 
     last->next = newNode;
     printf("Node inserted at end.\n");
-}
+    }
 
-void deleteNode(struct Node** head, int key) {
+    void deleteNode(struct Node** head, int key) {
     struct Node* temp = *head;
     struct Node* prev = NULL;
 
@@ -107,9 +115,9 @@ void deleteNode(struct Node** head, int key) {
     prev->next = temp->next;
     free(temp);
     printf("Node with key %d deleted.\n", key);
-}
+    }
 
-void displayList(struct Node* node) {
+    void displayList(struct Node* node) {
     if (node == NULL) {
         printf("List is empty.\n");
         return;
@@ -121,5 +129,5 @@ void displayList(struct Node* node) {
         node = node->next;
     }
     printf("NULL\n");
-}
+    }
 
